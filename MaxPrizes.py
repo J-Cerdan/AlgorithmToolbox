@@ -1,5 +1,11 @@
 def maxPrizes(val):
-    arrValues = []
+    setValues = set()
+
+    values = ""
+
+    numValues = 0
+
+    first = 1
 
     value = val
 
@@ -9,16 +15,24 @@ def maxPrizes(val):
     else:
         for i in range(val):
             value -= i+1
-            if value in arrValues or i+1 in arrValues:
+            if value in setValues or i+1 in setValues or value == i+1:
                 value += i+1
                 continue
             else:
-                arrValues.append(i+1)
+                setValues.add(i+1)
+                numValues += 1
+
+                if not first:
+                    values += " "
+        
+                values += str(i+1)
+                first = 0
+
 
             if value == 0:
                 break
-
-        print(*arrValues, sep=" ")
+        print(numValues)
+        print(values)
         
 
 

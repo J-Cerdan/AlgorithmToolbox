@@ -1,14 +1,23 @@
 def maxAd(values, aList, bList):
     totalValue = 0
 
-    for i in range(values):
-        aMax = max(aList)
-        bMax = max(bList)
+#    for i in range(values):
+#        aMax = max(aList)
+#        bMax = max(bList)
+#
+#        totalValue += int(aMax)*int(bMax)
+#
+#        aList.remove(aMax)
+#        bList.remove(bMax)
 
-        totalValue += int(aMax)*int(bMax)
+    aList.sort()
+    bList.sort()
 
-        aList.remove(aMax)
-        bList.remove(bMax)
+    for i in range(len(aList)):
+        totalValue += int(aList[0])*int(bList[0])
+        aList.pop(0)
+        bList.pop(0)
+
 
 
     return totalValue
@@ -18,5 +27,6 @@ if __name__ == "__main__":
 
     aList = input().split()
     bList = input().split()
+
 
     print(maxAd(values, aList, bList))

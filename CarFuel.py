@@ -21,7 +21,7 @@ def carFuel(travel, fuel, stopAmt, stops):
         if reach >= travel:
             return fuelCount
 
-    return fuelCount
+    return -1
 
 if __name__ == "__main__" :
     travel = int(input())
