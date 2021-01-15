@@ -3,12 +3,12 @@ def binarySearch(arr, low, high, val):
     if high <= low:
         return -1
     
-    mid = low + int((high-low)/2)
+    mid = low + ((high-low)//2)
 
     if val == arr[mid]:
         return mid
     elif val < arr[mid]:
-        return binarySearch(arr, low, mid-1, val)
+        return binarySearch(arr, low, mid, val)
     else:
         return binarySearch(arr, mid+1, high, val)
 
