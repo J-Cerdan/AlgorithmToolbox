@@ -2,22 +2,27 @@ import random
 
 def partition3(a, l, r):
     #write your code here
-    x = a[l]
-    j = i = l
-    k = r
+    sameCount = 1
 
-    while i <= k :
+    x = a[l]
+    print("xvalue:" + str(x))
+    j = l
+ 
+    for i in range(l + 1, r + 1):
+
         if a[i] < x:
-            a[i], a[j] = a[j], a[i]
+            j += 1
+            a[i], a[j-sameCount] = a[j-sameCount], a[i]
+        elif a[i] == x:
+            sameCount += 1
             j += 1
 
-        elif a[i] > x:
-            a[i], a[k] = a[k], a[i]
-            k -= 1
-            i -= 1 
-        i += 1  
-         
-    return j, k
+    a[l], a[j] = a[j], a[l]
+
+    print("j:"+ str(j))
+    print("samecount:"+ str(sameCount))
+
+    return j-sameCount+1, j
 
 def partition2(a, l, r):
     x = a[l]
